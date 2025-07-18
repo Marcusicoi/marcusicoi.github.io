@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" href="https://marcusicoi.glitch.me/icon.png" />
+
+    <title></title>
+
+    <!-- import the webpage's stylesheet -->
+    <link rel="stylesheet" href="/florr/petal/crafting/style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@700&display=swap" rel="stylesheet">
+    <!-- import the webpage's javascript file -->
+    <script defer src="/florr/petal/crafting/script.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/html2canvas@1.0.0-rc.5/dist/html2canvas.min.js"></script>
+    <script defer src="https://superal.github.io/canvas2image/canvas2image.js"></script>
+  </head>
+  <body>
+    <!-- this is the start of content -->
+    <h1>Florr Crafting Simulator (REWORKED)</h1>
+    <h2 style="height:5px">Crafts petals (NOT A CALCULATOR)</h2>
+    <h6>made by 8172</h6>
+    <h4>TheDarkMeme for PRNG Chances.</h4>
+    <h6></h6>
+    <a id="ssbutton" style="background:purple">SCREENSHOT</a>
+    <a id="acbutton" style="background:blue">ENABLE AUTOCRAFT</a>
+    <a id="prbutton" style="background:yellow">PRECISE PRNG</a>
+    <a id="scbutton" style="background:red">SET SECRET CHANCE</a>
+    <a id="wdbutton" style="background:green">CUSTOM CANVAS WIDTH</a>
+    <a id="fwbutton" style="background:magenta">FLOWR CRAFTING</a>
+    <a id="odbutton" style="background:cyan" href="https://marcusicoi.glitch.me/florr/petal/oldcrafting">OLD VERSION</a>
+    <input type="number" id="wdtxt" placeholder="Width" style="display:none" min="0" required>
+    <h6></h6>
+    <div style="display:block">
+      <canvas id="canvas" width="325" height="230" style="border-radius:2.5px;background:rgba(0, 0, 0, 0.5)"></canvas>
+      <div id="craftingdiv">
+        <a id="button" style="background:#757575;margin-left:45px">Craft</a>
+        <a id="fakebutton" style="background:#757575;margin-left:-56.25px">Craft</a>
+        <input type="number" id="sctxt" placeholder="Chance" style="visibility:hidden" min="0" max="100" required>
+        <h4 id="chancetxt">??% Success Chance</h4>
+      </div>
+    </div>
+    <h6></h6>
+    <div id="florrchances">
+      <h4 style="color:#ffe65d;height:5px">Unusual</h4>
+      <h6 style="color:#ffe65d;height:0.25px">Older Parts</h6>
+      <a id="uOriginal" style="background:#ffe65d">Original (75%)</a>
+      <a id="uOlder" style="background:#ffe65d">Older (50%)</a>
+      <a id="uOld" style="background:#ffe65d">Old (40%)</a>
+      <a id="uPRNG" style="background:#ffe65d">PRNG (42.26%)</a>
+      <a id="uOlderLSkill" style="background:#ffe65d">Older LSkill (90%)</a>
+      <a id="uOldLSkill" style="background:#ffe65d">Old LSkill (60%)</a>
+      <a id="uOldMSkill" style="background:#ffe65d">Old MSkill (80%)</a>
+      <a id="uLSkill" style="background:#ffe65d">LSkill (44%)</a>
+      <a id="uMSkill" style="background:#ffe65d">MSkill (48%)</a>
+      <h6 style="color:#ffe65d;height:0.25px">New Parts</h6>
+      <a id="uCurrent" style="background:#ffe65d">Current (64%)</a>
+    
+      <h4 style="color:#484eda;height:5px">Rare</h4>
+      <h6 style="color:#484eda;height:0.25px">Old Parts</h6>
+      <a id="rOriginal" style="background:#4d52e3">Original (50%)</a>
+      <a id="rOlder" style="background:#4d52e3">Older (40%)</a>
+      <a id="rOld" style="background:#4d52e3">Old (30%)</a>
+      <a id="rPRNG" style="background:#4d52e3">PRNG (20.15%)</a>
+      <a id="rOldLSkill" style="background:#4d52e3">Old LSkill (45%)</a>
+      <a id="rOldMSkill" style="background:#4d52e3">Older LSkill / Old MSkill (60%)</a>
+      <a id="rLSkill" style="background:#4d52e3">LSkill (33%)</a>
+      <a id="rMSkill" style="background:#4d52e3">MSkill (36%)</a>
+      <h6 style="color:#484eda;height:0.25px">New Parts</h6>
+      <a id="rCurrent" style="background:#4d52e3">Current (32%)</a>
+    
+      <h4 style="color:#861fde;height:5px">Epic</h4>
+      <h6 style="color:#861fde;height:0.25px">Old Parts</h6>
+      <a id="eOriginal" style="background:#861fde">Original (25%)</a>
+      <a id="eOldest" style="background:#861fde">Oldest (15%)</a>
+      <a id="eOld" style="background:#861fde">Older / Old (20%)</a>
+      <a id="ePRNG" style="background:#861fde">PRNG (5.57%)</a>
+      <a id="eOlderLSkill" style="background:#861fde">Older LSkill (60%)</a>
+      <a id="eOldMSkill" style="background:#861fde">(Old / Older) MSkill (30%)</a>
+      <a id="eLSkill" style="background:#861fde">LSkill (22%)</a>
+      <a id="eMSkill" style="background:#861fde">MSkill (24%)</a>
+      <h6 style="color:#861fde;height:0.25px">New Parts</h6>
+      <a id="eCurrent" style="background:#861fde">Current (16%)</a>
+    
+      <h4 style="color:#dc201f;height:5px">Legendary</h4>
+      <h6 style="color:#dc201f;height:0.25px">Old Parts</h6>
+      <a id="lOriginal" style="background:#de1f1f">Original (5%)</a>
+      <a id="lOld" style="background:#de1f1f">Older / Old (10%)</a>
+      <a id="lPRNG" style="background:#de1f1f">PRNG (1.47%)</a>
+      <a id="lOldMSkill" style="background:#de1f1f">(Old / Older) MSkill (15%)</a>
+      <a id="lLSkill" style="background:#de1f1f">LSkill (11%)</a>
+      <a id="lMSkill" style="background:#de1f1f">MSkill (12%)</a>
+      <h6 style="color:#de1f1f;height:0.25px">New Parts</h6>
+      <a id="lCurrent" style="background:#de1f1f">Current (8%)</a>
+    
+      <h4 style="color:#1fdbdd;height:5px">Mythic</h4>
+      <h6 style="color:#1fdbdd;height:0.25px">Old Parts</h6>
+      <a id="mOriginal" style="background:#1fdbdd">Original (1%)</a>
+      <a id="mOlder" style="background:#1fdbdd">Older (2%)</a>
+      <a id="mOld" style="background:#1fdbdd">Old (3%)</a>
+      <a id="mPRNG" style="background:#1fdbdd">PRNG (0.14%)</a>
+      <a id="mLSkill" style="background:#1fdbdd">LSkill (3.3%)</a>
+      <a id="mMSkill" style="background:#1fdbdd">MSkill (3.6%)</a>
+      <h6 style="color:#1fdbdd;height:0.25px">New Parts</h6>
+      <a id="mCurrent" style="background:#1fdbdd">Current (4%)</a>
+    
+      <h4 style="color:#de1f65;height:5px">Ultra</h4>
+      <h6 style="color:#de1f65;height:0.25px">Old Parts</h6>
+      <a id="ulOriginal" style="background:#72d964">Original (100%)</a>
+      <a id="ulOlder" style="background:#303030">Older (100%)</a>
+      <a id="ulOld" style="background:#ffc700">Old (100%)</a>
+      <a id="ulLSkill" style="background:#ff2b75">LSkill (2.2%)</a>
+      <a id="ulMSkill" style="background:#ff2b75">MSkill (2.4%)</a>
+      <h6 style="color:#de1f65;height:0.25px">New Parts</h6>
+      <a id="ulCurrent" style="background:#ff2b75">Current (2%)</a>
+      <h6 style="color:#ff2b75;height:0.25px">Made-up Parts</h6>
+      <a id="ulPRNG" style="background:#ff2b75">PRNG (0.05%)</a>
+    
+      <h4 style="color:#2bffa3;height:5px">Super</h4>
+      <a id="sLSkill" style="background:#2bffa3">LSkill (1.1%)</a>
+      <a id="sMSkill" style="background:#2bffa3">MSkill (1.2%)</a>
+      <h6 style="color:#2bffa3;height:0.25px">Old Parts</h6>
+      <a id="sCurrent" style="background:#2bffa3">Current (1%)</a>
+      <h6 style="color:#2bffa3;height:0.25px">Made-up Parts</h6>
+      <a id="sPRNG" style="background:#2bffa3">PRNG (0.02%)</a>
+    
+      <h4 style="color:#ffc10f;height:5px">Celestial</h4>
+      <a id="ceLSkill" style="background:#ffc10f">LSkill (0.8%)</a>
+      <a id="ceMSkill" style="background:#ffc10f">MSkill (0.9%)</a>
+      <a id="ceCurrent" style="background:#ffc10f">Current (0.7%)</a>
+      <h6 style="color:#ffc10f;height:0.25px">Made-up Parts</h6>
+      <a id="cePRNG" style="background:#ffc10f">PRNG (0.006%)</a>
+    
+      <h4 style="color:#010eb1;height:5px">Chaos</h4>
+      <a id="chLSkill" style="background:#010eb1">LSkill (0.5%)</a>
+      <a id="chMSkill" style="background:#010eb1">MSkill (0.6%)</a>
+      <a id="chCurrent" style="background:#010eb1">Current (0.4%)</a>
+      <h6 style="color:#010eb1;height:0.25px">Made-up Parts</h6>
+      <a id="chPRNG" style="background:#010eb1">PRNG (0.002%)</a>
+    
+      <h4 style="color:#f4bdf2;height:5px">Effulgent</h4>
+      <a id="efLSkill" style="background:#f4bdf2">LSkill (0.2%)</a>
+      <a id="efMSkill" style="background:#f4bdf2">MSkill (0.3%)</a>
+      <a id="efCurrent" style="background:#f4bdf2">Current (0.1%)</a>
+      <h6 style="color:#f4bdf2;height:0.25px">Made-up Parts</h6>
+      <a id="efPRNG" style="background:#f4bdf2">PRNG (0.001%)</a> 
+    </div>
+    <div id="flowrchances" style="display:none">
+      <a id="uFlowrPRNG" style="background:#ffe65d">Current PRNG (30%)</a>
+      <a id="rFlowrPRNG" style="background:#4d52e3">Current PRNG (15%)</a>
+      <a id="eFlowrPRNG" style="background:#861fde">Current PRNG (8%)</a>
+      <a id="lFlowrPRNG" style="background:#de1f1f">Current PRNG (5%)</a>
+      <a id="mFlowrPRNG" style="background:#1fdbdd">Current PRNG (3%)</a>
+      <a id="ulFlowrPRNG" style="background:#ff2b75">Current PRNG (2%)</a>
+      <a id="sFlowrPRNG" style="background:#2bffa3">Current PRNG (1%)</a>
+      <a id="oFlowrPRNG" style="background:#494949">Current PRNG (0.9%)</a>
+      <a id="fFlowrPRNG" style="background:#ff5500">Current PRNG (0.8%)</a>
+      <a id="dFlowrPRNG" style="background:#67549c">Current PRNG (0.7%)</a>
+      <a id="smFlowrPRNG" style="background:#b25dd9">Current PRNG (0.6%)</a>
+      <a id="omFlowrPRNG" style="background:#888888">Current PRNG (0.5%)</a>
+    </div>
+    <h4>Custom Probability</h4>
+    <input type="number" id="cstprob" placeholder="Probability" max="100">
+    
+    <h4>More petals</h4>
+    <input type="text" id="txt" placeholder="Amount Of Petals" min="4" value="5" required>
+   
+    <!--<h4>Canvas</h4>
+    <input type="text" id="canvh" placeholder="Height" value="270">
+    <input type="text" id="canvw" placeholder="Width" value="300">-->
+  </body>
+</html>
