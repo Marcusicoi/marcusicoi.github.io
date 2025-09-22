@@ -135,7 +135,7 @@ for (var i in songs) {
 }*/
 function play(index) {
     var i = new Audio()
-    i.src = `smashhit/songs/${songs[index]}.mp3`
+    i.src = `https://marcusicoi.github.io/smashhit/songs/${songs[index]}.mp3`
     i.play()
 }
 //PLAY!!
