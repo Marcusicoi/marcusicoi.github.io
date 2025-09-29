@@ -22,19 +22,19 @@ window.onload = function() {
   function loadBuild(link) {
     let b = document.createElement("script");
     b.defer = true;
-    b.src = `/florr/tmr/builds/${link}/background.js`;
+    b.src = `https://marcusicoi.github.io/florr/tmr/builds/${link}/background.js`;
     b.type = "text/javascript";
     document.getElementsByTagName("head")[0].appendChild(b);
     
     let c = document.createElement("script");
     c.defer = true;
-    c.src = `/florr/tmr/builds/${link}/color.js`;
+    c.src = `https://marcusicoi.github.io/florr/tmr/builds/${link}/color.js`;
     c.type = "text/javascript";
     document.getElementsByTagName("head")[0].appendChild(c);
     
     let s = document.createElement("script");
     s.defer = true;
-    s.src = `/florr/tmr/builds/${link}/set.js`;
+    s.src = `https://marcusicoi.github.io/florr/tmr/builds/${link}/set.js`;
     s.type = "text/javascript";
     document.getElementsByTagName("head")[0].appendChild(s);
     
