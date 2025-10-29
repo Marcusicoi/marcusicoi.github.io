@@ -189,7 +189,7 @@ ID("dg").onclick = function() {
       quality: 10,
       width: canvas.width,
       height: canvas.height,
-      workerScript: '/gif.js',
+      workerScript: 'https://marcusicoi.github.io/florr/dare/gif.js',
     });
   
     let array = [];
