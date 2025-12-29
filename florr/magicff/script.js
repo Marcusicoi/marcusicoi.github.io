@@ -31,7 +31,7 @@ window.onload = function() {
   }, 1);
 };
 
-let date = new Date(2025, 0, 19, 0, 0, 0);
+let date = new Date(2026, 0, 1, 0, 0, 0);
 let $ = (i) => { return document.getElementById(i) };
 let now = new Date();
 
