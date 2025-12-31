@@ -144,7 +144,7 @@ setInterval(function() {
   alert("Copied!");
 };*/
 
-let petals = Math.floor((window.innerWidth + window.innerHeight) / 100);
+let petals = Math.floor((window.innerWidth + window.innerHeight) / 200);
 let logs = [];
 let src = [
   "https://cdn.glitch.global/7c11ce93-3b90-40a3-8810-34832400f1b0/20241208_215340.png?v=1733666044975"
