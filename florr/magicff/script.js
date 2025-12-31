@@ -98,20 +98,22 @@ function followedBy() {
 };
 followedBy();
 
+let reached = false;
 setInterval(function() {
   now = new Date();
   let h = Math.floor((nextDate - now) / (1000 * 60 * 60));
   let m = Math.floor(((nextDate - now) % (1000 * 60 * 60)) / (1000 * 60));
   let s = Math.floor(((nextDate - now) % (1000 * 60)) / 1000);
  
-  if (h <= 0 && m <= 0 && s <= 0) {
+  if (now > date) reached = true;
+  if (reached) {
     /*lastDate = nextDate;
     nextDate = dates[dates.indexOf(lastDate) + 1];
     next2Date = dates[dates.indexOf(lastDate) + 2];
     next3Date = dates[dates.indexOf(lastDate) + 3];
     next4Date = dates[dates.indexOf(lastDate) + 4];
     followedBy();*/
-    h = 0; m = 0; s = 0;
+    h = "00"; m = "00"; s = "00";
   };
   
   let s1 = s.toString()[0];
