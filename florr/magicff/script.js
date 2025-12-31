@@ -100,9 +100,9 @@ followedBy();
 
 setInterval(function() {
   now = new Date();
-  const h = Math.floor((nextDate - now) / (1000 * 60 * 60));
-  const m = Math.floor(((nextDate - now) % (1000 * 60 * 60)) / (1000 * 60));
-  const s = Math.floor(((nextDate - now) % (1000 * 60)) / 1000);
+  let h = Math.floor((nextDate - now) / (1000 * 60 * 60));
+  let m = Math.floor(((nextDate - now) % (1000 * 60 * 60)) / (1000 * 60));
+  let s = Math.floor(((nextDate - now) % (1000 * 60)) / 1000);
  
   if (h <= 0 && m <= 0 && s <= 0) {
     /*lastDate = nextDate;
