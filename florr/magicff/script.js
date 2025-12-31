@@ -106,7 +106,7 @@ setInterval(function() {
   let s = Math.floor(((nextDate - now) % (1000 * 60)) / 1000);
  
   if (now > date) reached = true;
-  if (reached) {
+  if (reached || (h <= 0 && m <= 0 && s <= 0)) {
     /*lastDate = nextDate;
     nextDate = dates[dates.indexOf(lastDate) + 1];
     next2Date = dates[dates.indexOf(lastDate) + 2];
